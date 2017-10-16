@@ -1,0 +1,16 @@
+{
+    "name" : "watkins/glk",
+    "description" : "",
+    "type" : "symfony-bundle",
+    "license": "All rights reserverd",
+    "autoload" : {
+        "psr-4" : {
+            "Watkins\\Glk\\GlkBundle\\": "glk-bundle/"
+        }
+    },
+    "extra" : {
+        "branch-alias" : {
+            "dev-master" : "0.3-dev"
+        }
+    }
+}

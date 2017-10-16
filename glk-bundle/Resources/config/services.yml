@@ -1,0 +1,22 @@
+services:
+    check_listener:
+        class: Watkins\Glk\GlkBundle\EventListener\CheckListener
+        arguments:
+            - '@core.services.stored_variables'
+            - '@core.cronjobs.executor'
+            - '@Watkins\Glk\GlkBundle\Service\Check'
+            - '@uuid-ext'
+        tags:
+            -
+                name: kernel.event_listener
+                event: kernel.request
+                method: onKernelRequest
+
+    Watkins\Glk\GlkBundle\Service\Check:
+        arguments:
+            - '@Watkins\Glk\GlkBundle\Service\Sign'
+            - '%node_id%'
+        public: false
+
+    Watkins\Glk\GlkBundle\Service\Sign:
+        public: false
